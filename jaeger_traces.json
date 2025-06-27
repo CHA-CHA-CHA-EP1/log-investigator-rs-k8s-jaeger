@@ -1,0 +1,574 @@
+{
+  "data": [
+    {
+      "traceID": "req20250628143730004",
+      "spans": [
+        {
+          "traceID": "req20250628143730004",
+          "spanID": "0000000000000001",
+          "parentSpanID": null,
+          "operationName": "http_handler",
+          "startTime": 1751096250123456,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "INFO"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "received request"
+            }
+          ],
+          "processID": "porch"
+        },
+        {
+          "traceID": "req20250628143730004",
+          "spanID": "0000000000000002",
+          "parentSpanID": "0000000000000001",
+          "operationName": "business_logic",
+          "startTime": 1751096250234567,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "INFO"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "processing request"
+            }
+          ],
+          "processID": "pcore"
+        },
+        {
+          "traceID": "req20250628143730004",
+          "spanID": "0000000000000003",
+          "parentSpanID": "0000000000000002",
+          "operationName": "validation",
+          "startTime": 1751096250345678,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "INFO"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "validating input data"
+            }
+          ],
+          "processID": "pcore"
+        },
+        {
+          "traceID": "req20250628143730004",
+          "spanID": "0000000000000004",
+          "parentSpanID": "0000000000000003",
+          "operationName": "service_call",
+          "startTime": 1751096250456789,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "INFO"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "calling adaptor service"
+            }
+          ],
+          "processID": "pcore"
+        },
+        {
+          "traceID": "req20250628143730004",
+          "spanID": "0000000000000005",
+          "parentSpanID": "0000000000000004",
+          "operationName": "kafka_handler",
+          "startTime": 1751096250567890,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "INFO"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "received submit request"
+            }
+          ],
+          "processID": "padaptor"
+        },
+        {
+          "traceID": "req20250628143730004",
+          "spanID": "0000000000000006",
+          "parentSpanID": "0000000000000005",
+          "operationName": "kafka_connection",
+          "startTime": 1751096250678901,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "INFO"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "connecting to kafka broker"
+            }
+          ],
+          "processID": "padaptor"
+        },
+        {
+          "traceID": "req20250628143730004",
+          "spanID": "0000000000000007",
+          "parentSpanID": "0000000000000006",
+          "operationName": "kafka_error",
+          "startTime": 1751096250789012,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "ERROR"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "fail to produce submit message"
+            },
+            {
+              "key": "error",
+              "type": "bool",
+              "value": "true"
+            },
+            {
+              "key": "error.message",
+              "type": "string",
+              "value": "failed to send message to submit_topic: kafka server: The client is not authorized to access this topic (original error: failed to send sync message: circuit breaker is open)"
+            }
+          ],
+          "processID": "padaptor"
+        },
+        {
+          "traceID": "req20250628143730004",
+          "spanID": "0000000000000008",
+          "parentSpanID": "0000000000000007",
+          "operationName": "circuit_breaker",
+          "startTime": 1751096250790123,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "WARN"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "circuit breaker opened"
+            }
+          ],
+          "processID": "padaptor"
+        },
+        {
+          "traceID": "req20250628143730004",
+          "spanID": "0000000000000009",
+          "parentSpanID": "0000000000000008",
+          "operationName": "service_error",
+          "startTime": 1751096250891234,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "ERROR"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "adaptor service failed"
+            },
+            {
+              "key": "error",
+              "type": "bool",
+              "value": "true"
+            },
+            {
+              "key": "error.message",
+              "type": "string",
+              "value": "failed to produce submit message: kafka server unavailable"
+            }
+          ],
+          "processID": "pcore"
+        },
+        {
+          "traceID": "req20250628143730004",
+          "spanID": "000000000000000a",
+          "parentSpanID": "0000000000000009",
+          "operationName": "rollback",
+          "startTime": 1751096250892345,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "ERROR"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "rollback transaction"
+            }
+          ],
+          "processID": "pcore"
+        },
+        {
+          "traceID": "req20250628143730004",
+          "spanID": "000000000000000b",
+          "parentSpanID": "000000000000000a",
+          "operationName": "service_error",
+          "startTime": 1751096250993456,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "ERROR"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "core service returned error"
+            },
+            {
+              "key": "error",
+              "type": "bool",
+              "value": "true"
+            },
+            {
+              "key": "error.message",
+              "type": "string",
+              "value": "upstream service unavailable"
+            }
+          ],
+          "processID": "porch"
+        },
+        {
+          "traceID": "req20250628143730004",
+          "spanID": "000000000000000c",
+          "parentSpanID": "000000000000000b",
+          "operationName": "http_response",
+          "startTime": 1751096250994567,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "INFO"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "responding to client"
+            }
+          ],
+          "processID": "porch"
+        }
+      ],
+      "processes": {
+        "porch": {
+          "serviceName": "orch",
+          "tags": []
+        },
+        "pcore": {
+          "serviceName": "core",
+          "tags": []
+        },
+        "padaptor": {
+          "serviceName": "adaptor",
+          "tags": []
+        }
+      }
+    },
+    {
+      "traceID": "req20250628143520002",
+      "spans": [
+        {
+          "traceID": "req20250628143520002",
+          "spanID": "0000000000000001",
+          "parentSpanID": null,
+          "operationName": "http_handler",
+          "startTime": 1751096120123456,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "INFO"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "received request"
+            }
+          ],
+          "processID": "porch"
+        },
+        {
+          "traceID": "req20250628143520002",
+          "spanID": "0000000000000002",
+          "parentSpanID": "0000000000000001",
+          "operationName": "business_logic",
+          "startTime": 1751096120234567,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "INFO"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "processing request"
+            }
+          ],
+          "processID": "pcore"
+        },
+        {
+          "traceID": "req20250628143520002",
+          "spanID": "0000000000000003",
+          "parentSpanID": "0000000000000002",
+          "operationName": "kafka_success",
+          "startTime": 1751096120345678,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "INFO"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "message sent successfully"
+            }
+          ],
+          "processID": "padaptor"
+        },
+        {
+          "traceID": "req20250628143520002",
+          "spanID": "0000000000000004",
+          "parentSpanID": "0000000000000003",
+          "operationName": "commit",
+          "startTime": 1751096120456789,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "INFO"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "transaction committed"
+            }
+          ],
+          "processID": "pcore"
+        },
+        {
+          "traceID": "req20250628143520002",
+          "spanID": "0000000000000005",
+          "parentSpanID": "0000000000000004",
+          "operationName": "http_response",
+          "startTime": 1751096120567890,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "INFO"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "responding to client"
+            }
+          ],
+          "processID": "porch"
+        }
+      ],
+      "processes": {
+        "padaptor": {
+          "serviceName": "adaptor",
+          "tags": []
+        },
+        "porch": {
+          "serviceName": "orch",
+          "tags": []
+        },
+        "pcore": {
+          "serviceName": "core",
+          "tags": []
+        }
+      }
+    },
+    {
+      "traceID": "req20250628143615003",
+      "spans": [
+        {
+          "traceID": "req20250628143615003",
+          "spanID": "0000000000000001",
+          "parentSpanID": null,
+          "operationName": "http_handler",
+          "startTime": 1751096175123456,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "INFO"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "received request"
+            }
+          ],
+          "processID": "porch"
+        },
+        {
+          "traceID": "req20250628143615003",
+          "spanID": "0000000000000002",
+          "parentSpanID": "0000000000000001",
+          "operationName": "business_logic",
+          "startTime": 1751096175234567,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "INFO"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "processing request"
+            }
+          ],
+          "processID": "pcore"
+        },
+        {
+          "traceID": "req20250628143615003",
+          "spanID": "0000000000000003",
+          "parentSpanID": "0000000000000002",
+          "operationName": "kafka_slow",
+          "startTime": 1751096175345678,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "WARN"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "kafka broker slow response detected"
+            }
+          ],
+          "processID": "padaptor"
+        },
+        {
+          "traceID": "req20250628143615003",
+          "spanID": "0000000000000004",
+          "parentSpanID": "0000000000000003",
+          "operationName": "kafka_success",
+          "startTime": 1751096176845678,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "INFO"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "message sent successfully"
+            }
+          ],
+          "processID": "padaptor"
+        },
+        {
+          "traceID": "req20250628143615003",
+          "spanID": "0000000000000005",
+          "parentSpanID": "0000000000000004",
+          "operationName": "commit",
+          "startTime": 1751096176956789,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "INFO"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "transaction committed"
+            }
+          ],
+          "processID": "pcore"
+        },
+        {
+          "traceID": "req20250628143615003",
+          "spanID": "0000000000000006",
+          "parentSpanID": "0000000000000005",
+          "operationName": "http_response",
+          "startTime": 1751096177067890,
+          "duration": 1000,
+          "tags": [
+            {
+              "key": "severity",
+              "type": "string",
+              "value": "INFO"
+            },
+            {
+              "key": "message",
+              "type": "string",
+              "value": "responding to client"
+            }
+          ],
+          "processID": "porch"
+        }
+      ],
+      "processes": {
+        "pcore": {
+          "serviceName": "core",
+          "tags": []
+        },
+        "padaptor": {
+          "serviceName": "adaptor",
+          "tags": []
+        },
+        "porch": {
+          "serviceName": "orch",
+          "tags": []
+        }
+      }
+    }
+  ]
+}
